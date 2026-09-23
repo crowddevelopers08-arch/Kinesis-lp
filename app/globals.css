@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+/* Kinesis brand tokens — taken from kinesispainfree.com (Elementor global colours) */
+@theme {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+
+  --color-plum-950: #1e1226;
+  --color-plum-900: #2a0b3b;
+  --color-plum-800: #3b005a;
+  --color-plum-700: #490e66;
+  --color-plum-600: #612579;
+  --color-plum-500: #7d3a9a;
+
+  --color-lilac-500: #d367ff;
+  --color-lilac-400: #dd83ff;
+  --color-lilac-300: #dda1f5;
+  --color-lilac-200: #e1c1ef;
+  --color-lilac-100: #f8e7ff;
+  --color-lilac-50: #fcf6ff;
+
+  --color-mauve-600: #706377;
+  --color-ink: #1e1226;
+  --color-mist: #f7f5f6;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  --animate-travel-x: travel-x 3.2s ease-in-out infinite;
+  --animate-travel-y: travel-y 4s ease-in-out infinite;
+  --animate-bob: bob 3.2s ease-in-out infinite;
+
+  @keyframes travel-x {
+    0% { left: 10%; opacity: 0; }
+    10%, 90% { opacity: 1; }
+    100% { left: 90%; opacity: 0; }
+  }
+  @keyframes travel-y {
+    0% { top: 2.5rem; opacity: 0; }
+    10%, 90% { opacity: 1; }
+    100% { top: calc(100% - 7rem); opacity: 0; }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* Emoji swap on the review page */
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
