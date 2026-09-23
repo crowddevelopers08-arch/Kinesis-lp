@@ -5,60 +5,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 import SectionHeading from "./SectionHeading";
 import { ArrowIcon } from "./Icons";
-
-type Treatment = {
-  title: string;
-  text: string;
-  img: string;
-  alt: string;
-  credit: { author: string; license: string; source: string };
-};
-
-// Images: Wikimedia Commons, Creative Commons licensed — cropped to 4:3; attribution (and the change) shown as the licences require.
-const treatments: Treatment[] = [
-  {
-    title: "Stem Cell Therapy",
-    text: "Harnessing the power of stem cells to repair damaged tissues and accelerate recovery.",
-    img: "/images/treatments/stem-cell-therapy.jpg",
-    alt: "Doctor preparing a stem cell therapy sample",
-    credit: { author: "Alice Pien, MD", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Doctor-preparing-to-perform-stem-cell-therapy.jpg" },
-  },
-  {
-    title: "Prolotherapy",
-    text: "An injection-based therapy that stimulates the body's healing response to strengthen weakened joints and ligaments.",
-    img: "/images/treatments/prolotherapy.jpg",
-    alt: "Injection into the knee joint",
-    credit: { author: "PainDoctorUSA", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Pain-Doctor-Knee-Injection-Procedure-3.jpg" },
-  },
-  {
-    title: "Nerve Blocks",
-    text: "Used to relieve pain by blocking nerve signals from specific areas of the body.",
-    img: "/images/treatments/nerve-blocks.jpg",
-    alt: "Ultrasound image showing a needle guided to a nerve",
-    credit: { author: "Elsawy AGS et al.", license: "CC BY 4.0", source: "https://commons.wikimedia.org/wiki/File:Piriformis_ultrasound_injection.png" },
-  },
-  {
-    title: "Epidural Injections",
-    text: "Delivering steroids or anaesthetics to the epidural space to reduce inflammation and pain.",
-    img: "/images/treatments/epidural-injections.jpg",
-    alt: "Illustration of an epidural steroid injection into the spine",
-    credit: { author: "Blausen.com staff", license: "CC BY 3.0", source: "https://commons.wikimedia.org/wiki/File:Blausen_0354_EpiduralSteroidInjection.png" },
-  },
-  {
-    title: "Radiofrequency Ablation",
-    text: "A technique that uses heat to disrupt pain signals from specific nerves.",
-    img: "/images/treatments/radiofrequency-ablation.jpg",
-    alt: "Radiofrequency probes placed along the spine during ablation",
-    credit: { author: "PainDoctorUSA", license: "CC BY-SA 4.0", source: "https://commons.wikimedia.org/wiki/File:Pain-Doctor-Radiofrequency-Ablation-Procedure-7_copy.jpg" },
-  },
-  {
-    title: "Spinal Cord Stimulation",
-    text: "Implanting a device that sends electrical signals to the spinal cord to manage chronic pain.",
-    img: "/images/treatments/spinal-cord-stimulation.jpg",
-    alt: "X-ray showing spinal cord stimulator leads along the spine",
-    credit: { author: "Mconnell", license: "CC BY 3.0", source: "https://commons.wikimedia.org/wiki/File:Anterior_thoracic_SCS.jpg" },
-  },
-];
+import { treatments } from "@/lib/treatments";
 
 /* Each panel gets its own shade so the stack reads as separate layers */
 const shades = [
@@ -158,18 +105,11 @@ export default function Treatments() {
                     <p className="mt-3 text-base leading-relaxed text-white/75 sm:mt-4 sm:text-lg">{t.text}</p>
                   </div>
 
-                  <figure>
+                  <div>
                     <div className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-plum-950 ring-1 ring-white/10 sm:rounded-3xl">
                       <Image src={t.img} alt={t.alt} fill quality={90} sizes="(min-width:1024px) 432px, 100vw" className="object-cover" />
                     </div>
-                    <figcaption className="mt-2 text-right text-[11px] text-white/45">
-                      Image:{" "}
-                      <a href={t.credit.source} target="_blank" rel="noopener noreferrer" className="underline decoration-white/25 underline-offset-2 hover:text-white/70">
-                        {t.credit.author}
-                      </a>
-                      , {t.credit.license} (cropped)
-                    </figcaption>
-                  </figure>
+                  </div>
                 </div>
               </article>
             </div>

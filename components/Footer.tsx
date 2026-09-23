@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { FacebookIcon, InstagramIcon, YouTubeIcon } from "./Icons";
+
+const socialIcons = { YouTube: YouTubeIcon, Instagram: InstagramIcon, Facebook: FacebookIcon };
 
 export default function Footer() {
   return (
@@ -12,6 +15,27 @@ export default function Footer() {
               <Image quality={90} src="/images/logo.png" alt="Kinesis Pain Speciality Centre" width={318} height={80} className="h-10 w-auto" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed">{site.address}</p>
+            <div className="mt-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lilac-300">Follow Us</p>
+              <ul className="mt-3 flex gap-2.5">
+                {site.socials.map(({ name, href }) => {
+                  const Icon = socialIcons[name];
+                  return (
+                    <li key={name}>
+                      <a
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Kinesis on ${name}`}
+                        className="grid h-10 w-10 place-items-center rounded-full bg-white/10 text-white ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:bg-lilac-400 hover:text-plum-950"
+                      >
+                        <Icon className="h-[18px] w-[18px]" />
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-lilac-300">Call</p>

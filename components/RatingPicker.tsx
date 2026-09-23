@@ -70,7 +70,7 @@ export default function RatingPicker() {
             onClick={() => choose(v)}
             className={`grid h-14 w-14 place-items-center rounded-2xl border transition duration-200 sm:h-[4.25rem] sm:w-[4.25rem] ${
               v <= shown ? "border-amber-200 bg-amber-50" : "border-plum-950/10 bg-mist"
-            } ${rating ? "cursor-default" : "hover:-translate-y-0.5"}`}
+            } ${rating ? "cursor-wait" : "hover:-translate-y-0.5"}`}
           >
             <Star filled={v <= shown} />
           </button>

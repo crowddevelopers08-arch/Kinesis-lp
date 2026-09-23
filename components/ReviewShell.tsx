@@ -15,7 +15,7 @@ export default function ReviewShell({ children, divider = false }: { children: R
           quality={90}
           className="mx-auto h-11 w-auto sm:h-12"
         />
-        {divider && <div aria-hidden className="mx-auto mt-7 h-px w-16 bg-plum-950/15" />}
+        {/* {divider && <div aria-hidden className="mx-auto mt-7 h-px w-16 bg-plum-950/15" />} */}
         {children}
       </div>
     </main>

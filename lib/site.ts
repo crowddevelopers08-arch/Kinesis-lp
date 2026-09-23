@@ -16,8 +16,13 @@ export const site = {
   ] as Hours[],
   mapEmbed:
     "https://www.google.com/maps?q=Kinesis+Pain+Speciality+Centre,+37/1+College+Road,+Nungambakkam,+Chennai+600006&output=embed",
-  // Google Business Profile "write a review" link (place ID for the Nungambakkam listing)
-  googleReviewUrl: "https://search.google.com/local/writereview?placeid=ChIJ4a6sDm9mUjoRqpnapk4u7Yg",
+  // Google Business Profile "write a review" link (Nungambakkam listing)
+  googleReviewUrl: "https://g.page/r/CaqZ2qZOLu2IEBM/review",
+  socials: [
+    { name: "YouTube", href: "https://www.youtube.com/@KinesisPainSpecialityCentre" },
+    { name: "Instagram", href: "https://www.instagram.com/kinesispainfree/" },
+    { name: "Facebook", href: "https://www.facebook.com/kinesispainfree" },
+  ] as { name: "YouTube" | "Instagram" | "Facebook"; href: string }[],
   mapLink:
     "https://www.google.com/maps/search/?api=1&query=Kinesis+Pain+Speciality+Centre+Nungambakkam+Chennai",
 };
