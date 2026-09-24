@@ -57,7 +57,7 @@ export default function LeadForm({ id = "lead-form", source = "hero", compact = 
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, source, ...utm }),
+        body: JSON.stringify({ ...values, source, pageUrl: window.location.href, ...utm }),
       });
       if (!res.ok) throw new Error("Request failed");
       router.push(`/thank-you?concern=${encodeURIComponent(values.concern)}`);

@@ -49,7 +49,7 @@ export default function FeedbackForm() {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, type: "feedback", rating, source: "feedback-page" }),
+        body: JSON.stringify({ ...values, type: "feedback", rating, source: "feedback-page", pageUrl: window.location.href }),
       });
       if (!res.ok) throw new Error();
       setStatus("sent");
